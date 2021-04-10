@@ -1,10 +1,11 @@
 import axios from 'axios'; //액시오스
 
-export default function customAxios(url, method, callback){
+export default function customAxios(url, method, callback, data){
     axios(
         {
             url: '' + url,
             method: method,
+            data : data,
 
             /**
              * 

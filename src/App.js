@@ -6,47 +6,30 @@ import customAxios from './customAxios';
 function App() {
 
   // init Data 선언
-  const [result, setResult] = useState([
-    {
-      userId: 'initID',
-      userEml: 'test@test.com',
-      userNm : 'yumin',
-      userTel : '010-1234-1234',
-      usertBrtDt: '901203',
-      userPwd: 'test'
-    },
-    {
-      userId: 'initID2',
-      userEml: 'test@test.com2',
-      userNm : 'yumin',
-      userTel : '010-1234-1234',
-      usertBrtDt: '901203',
-      userPwd: 'test'
-    }
-  ]);
-
+  const [result, setResult] = useState([]);
 
   // Data 넣기
-//  function callback(data){
-//    console.log(data)
-//    setResult(data);
-//  }
+  function callback(data){
+    console.log(data)
+    setResult(data);
+  }
 
   // Backend 연동시 수행
-//  useEffect(
-//    ()=>{
-//      customAxios('users', 'get', callback)
-//    }, []
-//  );
+  useEffect(
+    ()=>{
+      customAxios('users', 'get', callback)
+    }, []
+  );
 
   const userList = result.map( user => <tr>
-    <td>{user.userId}</td>
-    <td>{user.userEml}</td>
-    <td>{user.userNm}</td>
-    <td>{user.userTel}</td>
-    <td>{user.userPwd}</td>
+    <td>{user.usrId}</td>
+    <td>{user.usrEml}</td>
+    <td>{user.usrNm}</td>
+    <td>{user.usrTel}</td>
+    <td>{user.usrPwd}</td>
   </tr>
   )
+
   //const nameList = names.map(name => <li key={name.id}>{name.text}</li>)
 
   return (
